@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Berita Segoro Madu - LANDAS">
-    <meta name="keywords" content="Berita, Desa Segoro Madu, Sistem Informasi Pertanahan">
+    <meta name="description" content="Berita Terkini - LANDAS Desa Kendel">
+    <meta name="keywords" content="Berita, Desa Kendel, Sistem Informasi Pertanahan">
     <meta name="author" content="LANDAS Team">
     <title>Berita - LANDAS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,6 +62,58 @@
             background-color: rgba(0,91,128,0.1);
         }
 
+        .smt-hero {
+            position: relative;
+            color: white;
+            padding: 6rem 0;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .background-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .background-slider .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            animation: slideShow 32s infinite;
+        }
+
+        .background-slider .slide:nth-child(1) { animation-delay: 0s; }
+        .background-slider .slide:nth-child(2) { animation-delay: 8s; }
+        .background-slider .slide:nth-child(3) { animation-delay: 16s; }
+        .background-slider .slide:nth-child(4) { animation-delay: 24s; }
+
+        @keyframes slideShow {
+            0% { opacity: 0; }
+            6.25% { opacity: 1; }
+            25% { opacity: 1; }
+            31.25% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .smt-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .smt-hero h2, .smt-hero p {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
         .smt-card {
             border: none;
             border-radius: 12px;
@@ -116,6 +168,15 @@
             background-color: rgba(0,91,128,0.1);
         }
 
+        .news-event-section .smt-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .news-event-section .badge {
+            font-size: 0.9rem;
+            padding: 0.5em 1em;
+        }
+
         .quick-link-modal .modal-header {
             background-color: var(--smt-blue);
             color: white;
@@ -132,12 +193,24 @@
         }
 
         @media (max-width: 768px) {
+            .smt-hero {
+                padding: 4rem 0;
+            }
+
             .smt-logo {
                 height: 60px;
             }
 
             .smt-nav-link {
                 padding: 0.75rem 1rem !important;
+            }
+
+            .smt-hero h2 {
+                font-size: 2rem;
+            }
+
+            .smt-hero p {
+                font-size: 1rem;
             }
 
             .smt-nav {
@@ -185,7 +258,7 @@
                         <a class="nav-link smt-nav-link" href="index.html"><i class="fas fa-home me-1"></i> Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link smt-nav-link dropdown-toggle active" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+                        <a class="nav-link smt-nav-link dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-map-marked-alt me-1"></i> Profil
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="profilDropdown">
@@ -198,13 +271,13 @@
                             <i class="fas fa-file-alt me-1"></i> Publikasi
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="publikasiDropdown">
-                            <li><a class="dropdown-item" href="peta-pertanahan.html"><i class="fas fa-map me-2"></i> Peta Pertanahan</a></li>
-                            <li><a class="dropdown-item" href="data-tanah.html"><i class="fas fa-table me-2"></i> Data Tanah</a></li>
-                            <li><a class="dropdown-item" href="laporan-pertanahan.html"><i class="fas fa-file-text me-2"></i> Laporan Pertanahan</a></li>
+                            <li><a class="dropdown-item restricted-link" href="https://nuraziz27.github.io/nuraziz.github.io/"><i class="fas fa-map me-2"></i> Peta Pertanahan</a></li>
+                            <li><a class="dropdown-item restricted-link" href="data-tanah.html"><i class="fas fa-table me-2"></i> Data Tanah</a></li>
+                            <li><a class="dropdown-item restricted-link" href="laporan-pertanahan.html"><i class="fas fa-file-text me-2"></i> Laporan Pertanahan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link smt-nav-link" href="berita.html"><i class="fas fa-calendar-alt me-1"></i> Berita</a>
+                        <a class="nav-link smt-nav-link active" href="berita.html" aria-current="page"><i class="fas fa-calendar-alt me-1"></i> Berita</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link smt-nav-link" href="informasi.html"><i class="fas fa-info-circle me-1"></i> Informasi</a>
@@ -214,50 +287,63 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-   <section class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center mb-4">Berita Segoro Madu Terkini</h2>
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="smt-card">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" class="img-fluid rounded-start" alt="Semarang Night Carnival" loading="lazy">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="badge bg-primary">Berita</span>
-                                <h5>Semarang Night Carnival 2025</h5>
-                                <p>Parade budaya di Simpang Lima pada 15 Juni 2025.</p>
-                                <p><small class="text-muted">30 Mei 2025</small></p>
-                                <a href="#" class="btn btn-sm btn-primary">Baca Selengkapnya</a>
+    <!-- Hero Section -->
+    <section class="smt-hero">
+        <div class="background-slider">
+            <div class="slide" style="background-image: url('images/berita1.jpeg');"></div>
+            <div class="slide" style="background-image: url('images/b2.jpeg');"></div>
+            <div class="slide" style="background-image: url('images/b1.jpeg');"></div>
+            <div class="slide" style="background-image: url('images/b4.jpeg');"></div>
+        </div>
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold mb-4">Berita Terkini Desa Kendel</h2>
+        </div>
+    </section>
+
+    <!-- News & Event Section -->
+    <section class="py-5 bg-light news-event-section">
+        <div class="container">
+            <h3 class="mb-4 text-center">Berita Kendel Terkini</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card smt-card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                 <img src="images/pembaruan.jpg" class="img-fluid rounded-start" alt="Pembaruan Data Tanah" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=Gambar+Tidak+Tersedia'">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge bg-primary">Berita</span>
+                                    <h5 class="card-title">Pembaruan Data Tanah 2025</h5>
+                                    <p class="card-text">Pembaruan data kepemilikan tanah di Desa Kendel selesai pada 1 Juni 2025.</p>
+                                    <p class="card-text"><small class="text-muted">30 Mei 2025</small></p>
+                                    <a href="berita.html" class="btn btn-sm btn-primary">Baca Selengkapnya</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="smt-card">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" class="img-fluid rounded-start" alt="Festival Kota Lama 2025" loading="lazy">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <span class="badge bg-success">Event</span>
-                                <h5>Festival Kota Lama 2025</h5>
-                                <p>Acara tahunan di Kota Lama pada 25-27 Juni 2025.</p>
-                                <p><small class="text-muted">29 Mei 2025</small></p>
-                                <a href="#" class="btn btn-sm btn-primary">Lihat Detail</a>
+                <div class="col-md-6">
+                    <div class="card smt-card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="images/simulasi bencana.jpeg" class="img-fluid rounded-start" alt="Sosialisasi LANDAS" loading="lazy" onerror="this.src='https://via.placeholder.com/200x150?text=Gambar+Tidak+Tersedia'">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <span class="badge bg-success">Berita</span>
+                                    <h5 class="card-title">Pemkab Boyolali gelar simulasi antisipasi bencana</h5>
+                                    <p class="card-text">Acara Pemkab Boyolali gelar simulasi antisipasi bencana di balai desa pada 10 Juni 2025.</p>
+                                    <p class="card-text"><small class="text-muted">29 Mei 2025</small></p>
+                                    <a href="berita.html" class="btn btn-sm btn-primary">Lihat Detail</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer class="smt-footer">
@@ -267,7 +353,7 @@
                     <h5>Kontak Kami</h5>
                     <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Banjarsari, Tembalang, Kota Semarang</p>
                     <p><i class="fas fa-phone me-2"></i> 08998639593</p>
-                    <p><i class="fas fa-envelope me-2"></i> info@wisatayuk.go.id</p>
+                    <p><i class="fas fa-envelope me-2"></i> azizsyaifudin20@gmail.com</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Tautan Cepat</h5>
@@ -379,7 +465,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Kami di LANDAS berkomitmen untuk melindungi privasi pengguna. Informasi pribadi yang dikumpulkan hanya digunakan untuk meningkatkan pengalaman pengguna dan tidak akan dibagikan tanpa persetujuan.</p>
-                    <p>Untuk detail lebih lanjut, silakan hubungi kami di <a href="mailto:info@wisatayuk.go.id">info@wisatayuk.go.id</a>.</p>
+                    <p>Untuk detail lebih lanjut, silakan hubungi kami di <a href="mailto:azizsyaifudin20@gmail.com">azizsyaifudin20@gmail.com</a>.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
@@ -417,7 +503,7 @@
                 </div>
                 <div class="modal-body">
                     <h6>Bagaimana cara mengakses data pertanahan?</h6>
-                    <p>Telusuri halaman Publikasi untuk menemukan Peta Pertanahan, Data Tanah, atau Laporan Pertanahan.</p>
+                    <p>Telusuri halaman Publikasi untuk menemukan Peta Pertanahan, Data Tanah, atau Laporan Pertanahan setelah login.</p>
                     <h6>Apakah LANDAS menyediakan layanan konsultasi?</h6>
                     <p>Untuk informasi lebih lanjut, hubungi kami melalui halaman Kontak.</p>
                 </div>
@@ -441,9 +527,9 @@
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="profil-wilayah.html">Profil Wilayah</a></li>
                         <li><a href="anggota-kelompok.html">Anggota Kelompok</a></li>
-                        <li><a href="peta-pertanahan.html">Peta Pertanahan</a></li>
-                        <li><a href="data-tanah.html">Data Tanah</a></li>
-                        <li><a href="laporan-pertanahan.html">Laporan Pertanahan</a></li>
+                        <li><a href="https://nuraziz27.github.io/nuraziz.github.io/" class="restricted-link">Peta Pertanahan</a></li>
+                        <li><a href="data-tanah.html" class="restricted-link">Data Tanah</a></li>
+                        <li><a href="laporan-pertanahan.html" class="restricted-link">Laporan Pertanahan</a></li>
                         <li><a href="berita.html">Berita</a></li>
                         <li><a href="informasi.html">Informasi</a></li>
                     </ul>
@@ -624,6 +710,19 @@
                 registerModal.show();
             });
         }
+
+        // Penanganan link terbatas (Publikasi)
+        const restrictedLinks = document.querySelectorAll('.restricted-link');
+        restrictedLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!currentUser) {
+                    e.preventDefault();
+                    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                    loginModal.show();
+                    alert('Silakan login terlebih dahulu untuk mengakses halaman Publikasi.');
+                }
+            });
+        });
 
         // Cek status login saat halaman dimuat
         window.addEventListener('load', function() {
